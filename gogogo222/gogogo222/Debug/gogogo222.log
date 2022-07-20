@@ -1,3 +1,2 @@
 ﻿  test.c
-E:\00 张超\16 开发板\222 C学习工程\gogogo222\gogogo222\test.c(485,1): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-  gogogo222.vcxproj -> E:\00 张超\16 开发板\222 C学习工程\gogogo222\Debug\gogogo222.exe
+  gogogo222.vcxproj -> D:\ZcFlie\05 mycode\PubSto\gogogo222\Debug\gogogo222.exe

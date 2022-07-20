@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 ////////
 ////////int main()
 ////////{
@@ -210,6 +211,23 @@
 //			printf("x,y的最大公约数为%d\n", i);
 //			break;
 //		}
+//	return 0;
+//}
+
+//2个数最大公约数求法，辗转相除法
+//int main()
+//{
+//	int m, n;
+//	int t;
+//	printf("输入2个数：");
+//	scanf("%d%d", &m, &n);
+//	while (t = m % n != 0)
+//	{
+//		t = m % n;
+//		m = n;
+//		n = t;
+//	}
+//	printf("最大公约数是%d", n);
 //	return 0;
 //}
 
@@ -479,29 +497,100 @@
 //}
 
 //实现一个函数，判断一个数是不是素数
-int sushu(int a)
+//int sushu(int a)
+//{
+//	int i = 2;
+//	int b = sqrt(a);
+//	for (i = 2; i < b+1 ; i++)
+//	{
+//		if (a % i == 0)
+//		{
+//			break;
+//		}
+//	}
+//	if (i > sqrt(a))
+//		printf("%d是素数\n", a);
+//	else
+//		printf("%d不是素数\n", a);
+//
+//	return 0;
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	sushu(n);
+//	
+//	return 0;
+//}
+
+//写一个猜数字游戏
+//1、自动产生一个1-100之间的随机数
+//2、猜数字
+//  a、猜对了，游戏结束
+//  b、猜错了，会告诉你猜大了还是猜小了，继续猜，知道猜对为止
+//3、游戏可以一直玩，除非退出游戏
+
+
+
+void menu()
 {
-	int i = 2;
-	int b = sqrt(a);
-	for (i = 2; i < b+1 ; i++)
+	printf("*****************************\n");
+	printf("********    1.play   ********\n");
+	printf("********    0.exit   ********\n");
+	printf("*****************************\n");
+}
+void game()
+{
+	//猜数字游戏实现
+	//1、生成随机数
+	int ret = rand() % 100 + 1;  //使用rand()函数生成一个随机数
+	
+	//2、猜数字
+	int ans;
+	while(1)
 	{
-		if (a % i == 0)
+		printf("请猜数字: ");
+		scanf("%d", &ans);
+		if (ans == ret)
 		{
+			printf("恭喜你猜对了，答案就是%d\n", ret);
 			break;
 		}
-	}
-	if (i > sqrt(a))
-		printf("%d是素数\n", a);
-	else
-		printf("%d不是素数\n", a);
-
-	return 0;
+		else if (ans > ret)
+		{
+			printf("猜大了！\n");
+		}
+		else
+		{
+			printf("猜小了！\n");
+		}
+	} 
 }
 int main()
 {
-	int n;
-	scanf("%d", &n);
-	sushu(n);
-	
+	int input = 0;
+
+	do
+	{
+		menu();//打印菜单
+		printf("请选择：");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("选择错误，重新选择\n");
+			break;
+		}
+
+	} while (input);
+
 	return 0;
+	
 }
