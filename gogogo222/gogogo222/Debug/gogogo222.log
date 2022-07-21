@@ -1,2 +1,3 @@
 ﻿  test.c
-  gogogo222.vcxproj -> D:\ZcFlie\05 mycode\PubSto\gogogo222\Debug\gogogo222.exe
+e:\01 张超\10 开发板\04 c_code\gogogo222\gogogo222\test.c(628): warning C4098: “change”:“void”函数返回值
+  gogogo222.vcxproj -> E:\01 张超\10 开发板\04 C_code\gogogo222\Debug\gogogo222.exe

@@ -531,66 +531,108 @@
 //  b、猜错了，会告诉你猜大了还是猜小了，继续猜，知道猜对为止
 //3、游戏可以一直玩，除非退出游戏
 
+//void menu()
+//{
+//	printf("*****************************\n");
+//	printf("********    1.play   ********\n");
+//	printf("********    0.exit   ********\n");
+//	printf("*****************************\n");
+//}
+//void game()
+//{
+//	//猜数字游戏实现
+//	//1、生成随机数
+//	int ret = rand() % 100 + 1;  //使用rand()函数生成一个随机数
+//	
+//	//2、猜数字
+//	int ans;
+//	while(1)
+//	{
+//		printf("请猜数字: ");
+//		scanf("%d", &ans);
+//		if (ans == ret)
+//		{
+//			printf("恭喜你猜对了，答案就是%d\n", ret);
+//			break;
+//		}
+//		else if (ans > ret)
+//		{
+//			printf("猜大了！\n");
+//		}
+//		else
+//		{
+//			printf("猜小了！\n");
+//		}
+//	} 
+//}
+//int main()
+//{
+//	int input = 0;
+//
+//	do
+//	{
+//		menu();//打印菜单
+//		printf("请选择：");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			game();
+//			break;
+//		case 0:
+//			printf("退出游戏\n");
+//			break;
+//		default:
+//			printf("选择错误，重新选择\n");
+//			break;
+//		}
+//
+//	} while (input);
+//
+//	return 0;
+//}
 
 
-void menu()
+//关机程序 
+// shutdown -s -t 120   //120s后关机
+// shutdown -a    // 取消关机
+// 使用system ("   "); 执行系统命令
+// goto语句一般情况下不使用，可以用循环语句替代
+
+//int main()
+//{
+//	char input[20] = { 0 };
+//
+//	system("shutdown -s -t 120");
+//
+//again:
+//	printf("请注意，你的电脑即将关机，如果输入：我是天才，就取消关机\n");
+//	scanf("%s", input);
+//	if (strcmp(input, "我是天才") == 0)
+//	{
+//		system("shutdown -a");
+//	}
+//	else
+//	{
+//		goto again;
+//	}
+//	return 0;
+//}
+
+//使用函数交换两个变量的值
+void change(int* pa, int* pb)
 {
-	printf("*****************************\n");
-	printf("********    1.play   ********\n");
-	printf("********    0.exit   ********\n");
-	printf("*****************************\n");
-}
-void game()
-{
-	//猜数字游戏实现
-	//1、生成随机数
-	int ret = rand() % 100 + 1;  //使用rand()函数生成一个随机数
-	
-	//2、猜数字
-	int ans;
-	while(1)
-	{
-		printf("请猜数字: ");
-		scanf("%d", &ans);
-		if (ans == ret)
-		{
-			printf("恭喜你猜对了，答案就是%d\n", ret);
-			break;
-		}
-		else if (ans > ret)
-		{
-			printf("猜大了！\n");
-		}
-		else
-		{
-			printf("猜小了！\n");
-		}
-	} 
+	int z = *pa;
+	*pa = *pb;
+	*pb = z;
+	return 0;
 }
 int main()
 {
-	int input = 0;
-
-	do
-	{
-		menu();//打印菜单
-		printf("请选择：");
-		scanf("%d", &input);
-		switch (input)
-		{
-		case 1:
-			game();
-			break;
-		case 0:
-			printf("退出游戏\n");
-			break;
-		default:
-			printf("选择错误，重新选择\n");
-			break;
-		}
-
-	} while (input);
-
+	int a = 10;
+	int b = 20;
+	printf("交换前%d,%d\n", a, b);
+	change(&a, &b);
+	printf("交换后%d,%d\n", a, b);
 	return 0;
-	
 }
