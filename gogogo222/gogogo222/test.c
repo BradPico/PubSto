@@ -620,19 +620,153 @@
 //}
 
 //使用函数交换两个变量的值
-void change(int* pa, int* pb)
+//void change(int* pa, int* pb)
+//{
+//	int z = *pa;
+//	*pa = *pb;
+//	*pb = z;
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前%d,%d\n", a, b);
+//	change(&a, &b);
+//	printf("交换后%d,%d\n", a, b);
+//	return 0;
+//}
+
+//使用递归方法，将一个数字从第一位输出到最后一位
+//void print(int num)
+//{
+//	
+//	if (num >9)
+//	{
+//		print(num / 10);
+//	}
+//	printf("%d ", num % 10);
+//
+//}
+//
+//int main()
+//{
+//	int num;
+//	scanf("%d", &num);
+//	print(num);
+//	
+//	return 0;
+//}
+
+
+//编写函数不允许创建临时变量，计算字符串长度
+//int my_strlen(char* str) // 创建了临时变量的方法
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//int my_strlen(char* str) // 递归方法
+//{
+//	if (*str != '\0')
+//	{
+//		return 1 + my_strlen(str + 1);
+//	}
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	char arr[] = "BradPico";
+//
+//	printf("%d\n", my_strlen(arr));
+//
+//	return 0;
+//}
+
+//使用递归的方法计算n的阶乘
+//int Fac(int n)
+//{
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return n * Fac(n - 1);
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	printf("%d", Fac(n));
+//	return 0;
+//}
+
+//使用递归求第n个斐波那契数（效率很低）
+//int Fib(int n)  //递归
+//{
+//	if (n <= 2)
+//		return 1;
+//	else
+//		return Fib(n - 1) + Fib(n - 2);
+//}
+//int Fib(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n>2)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	printf("%d", Fib(n));
+//	return 0;
+//}
+
+//青蛙跳台阶的问题，一次能跳1或2，到n个台阶有多少种跳法
+//第1阶：1
+//第2阶：2
+//第3阶：3
+//第4阶：5
+//第n-2阶：jump(n-2)
+//第n-1阶：jump（n-1)
+//第n阶： 从n-1阶和n-2阶跳到n阶，各只有一种跳法，则jump(n) = jump(n-1)+jump(n-2);
+//则青蛙跳台阶问题抽象为类似斐波拉契数列问题
+int jump(int n)
 {
-	int z = *pa;
-	*pa = *pb;
-	*pb = z;
-	return 0;
+	//if (n <= 2)
+	//	return n;
+	//else
+	//	return jump(n - 1) + jump(n - 2);
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 1)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
 }
 int main()
 {
-	int a = 10;
-	int b = 20;
-	printf("交换前%d,%d\n", a, b);
-	change(&a, &b);
-	printf("交换后%d,%d\n", a, b);
+	int n;
+	scanf("%d", &n);
+	printf("%d", jump(n));
 	return 0;
 }
+
+
