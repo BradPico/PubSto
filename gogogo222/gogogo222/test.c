@@ -743,30 +743,47 @@
 //第n-1阶：jump（n-1)
 //第n阶： 从n-1阶和n-2阶跳到n阶，各只有一种跳法，则jump(n) = jump(n-1)+jump(n-2);
 //则青蛙跳台阶问题抽象为类似斐波拉契数列问题
-int jump(int n)
-{
-	//if (n <= 2)
-	//	return n;
-	//else
-	//	return jump(n - 1) + jump(n - 2);
-	int a = 1;
-	int b = 1;
-	int c = 1;
-	while (n > 1)
-	{
-		c = a + b;
-		a = b;
-		b = c;
-		n--;
-	}
-	return c;
-}
+//int jump(int n)
+//{
+//	//if (n <= 2)
+//	//	return n;
+//	//else
+//	//	return jump(n - 1) + jump(n - 2);
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n > 1)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	printf("%d", jump(n));
+//	return 0;
+//}
+
+
+//#include "add.h"
+//int main()
+//{
+//	int n;
+//	int m;
+//	scanf("%d%d", &n, &m);
+//	printf("%d\n",add(n, m));
+//
+//	return 0;
+//}
+
 int main()
 {
-	int n;
-	scanf("%d", &n);
-	printf("%d", jump(n));
+	pritnf("第一次提交");
+
 	return 0;
 }
-
-
