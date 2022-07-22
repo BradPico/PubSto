@@ -783,9 +783,13 @@
 
 int main()
 {
+	int a;
+	scanf("%d", &a);
 	pritnf("第一次提交");
 	printf("第二次提交");
 	printf("第三次提交");
 	
+	printf("%d", a);
+
 	return 0;
 }
