@@ -801,31 +801,99 @@
 //					 3：把n-1个盘子从B移到C，借助A柱
 //第1步与第3步实际上一样，只不过位置不一样，因此move函数形参中move(n,one,two,three),
 //one代表起始柱，two代表借助柱，three代表目的柱
-void step(char from	,char to)
+//void step(char from	,char to)
+//{
+//	printf("%c --> %c\n", from, to);
+//}
+//void move(int n, char one, char two, char three)//把n个盘子从one借助two移到three
+//{
+//	if (n == 1)
+//	{
+//		step(one, three);
+//	}
+//	else
+//	{
+//		move(n - 1, one, three, two);//第一步，n-1个盘从A->B,借助C
+//		step(one, three);            //第二步：第n个从A->C
+//		move(n - 1, two, one, three);//第三步：n-1个盘从B->C,借助A
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int m;
+//	
+//	printf("请输入A柱上盘子数量：");
+//	scanf("%d", &m);
+//	move(m,'A','B','C');
+//
+//	return 0;
+//}
+
+//使用递归实现n^k
+//int mi(int n, int k)
+//{
+//	//int a;
+//	if (k == 1)
+//	{
+//		return n;
+//	}
+//	else
+//	{
+//		return n * mi(n, k - 1);
+//	}
+//}
+//int main()
+//{
+//	int n;
+//	int k;
+//	scanf("%d%d", &n, &k);
+//	printf("%d", mi(n, k));
+//	return 0;
+//}
+
+//写一个递归函数DigitSum(n),输入一个非负整数，返回组成它的数字之和
+
+//int DigitSum(int n)
+//{
+//	if (n > 9)
+//	{	
+//		return n % 10 + DigitSum(n / 10);
+//	}
+//	else
+//	{
+//		return n;
+//	}
+//}
+//
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	printf("%d", DigitSum(n));
+//	return 0;
+//}
+
+//编写一个函数reverse_string(cha* string),递归实现将字符串反向排列
+char* reverse_string(char* string)
 {
-	printf("%c --> %c\n", from, to);
-}
-void move(int n, char one, char two, char three)//把n个盘子从one借助two移到three
-{
-	if (n == 1)
+	if (*string == '\0')
 	{
-		step(one, three);
+		return string-1;
 	}
 	else
 	{
-		move(n - 1, one, three, two);//第一步，n-1个盘从A->B,借助C
-		step(one, three);            //第二步：第n个从A->C
-		move(n - 1, two, one, three);//第三步：n-1个盘从B->C,借助A
+		printf("%c", *reverse_string(string + 1));
+		return string - 1;
 	}
-	return 0;
+	
 }
 int main()
 {
-	int m;
-	
-	printf("请输入A柱上盘子数量：");
-	scanf("%d", &m);
-	move(m,'A','B','C');
-
+	char arr[] = { "0" };
+	scanf("%s", arr);
+	char* p;
+	p = reverse_string(arr);
+	//printf("%s", reverse_string(arr));
 	return 0;
 }
