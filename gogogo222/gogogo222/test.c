@@ -784,6 +784,7 @@
 int main()
 {
 	pritnf("第一次提交");
+	printf("第二次提交");
 
 	return 0;
 }
