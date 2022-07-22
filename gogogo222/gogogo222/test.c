@@ -781,15 +781,51 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int a;
+//	scanf("%d", &a);
+//	pritnf("第一次提交");
+//	printf("第二次提交");
+//	printf("第三次提交");
+//	
+//	printf("%d", a);
+//
+//	return 0;
+//}
+
+//汉诺塔问题
+//三根柱子使用 A B C 代表
+//问题简化为：3步，  1：把n-1个盘子从A移到B，借助C柱
+//				 	 2：把第n个盘子从A移到C
+//					 3：把n-1个盘子从B移到C，借助A柱
+//第1步与第3步实际上一样，只不过位置不一样，因此move函数形参中move(n,one,two,three),
+//one代表起始柱，two代表借助柱，three代表目的柱
+void step(char from	,char to)
+{
+	printf("%c --> %c\n", from, to);
+}
+void move(int n, char one, char two, char three)//把n个盘子从one借助two移到three
+{
+	if (n == 1)
+	{
+		step(one, three);
+	}
+	else
+	{
+		move(n - 1, one, three, two);//第一步，n-1个盘从A->B,借助C
+		step(one, three);            //第二步：第n个从A->C
+		move(n - 1, two, one, three);//第三步：n-1个盘从B->C,借助A
+	}
+	return 0;
+}
 int main()
 {
-	int a;
-	scanf("%d", &a);
-	pritnf("第一次提交");
-	printf("第二次提交");
-	printf("第三次提交");
+	int m;
 	
-	printf("%d", a);
+	printf("请输入A柱上盘子数量：");
+	scanf("%d", &m);
+	move(m,'A','B','C');
 
 	return 0;
 }
