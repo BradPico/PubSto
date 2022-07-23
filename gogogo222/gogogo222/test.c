@@ -875,25 +875,100 @@
 //}
 
 //编写一个函数reverse_string(cha* string),递归实现将字符串反向排列
-char* reverse_string(char* string)
-{
-	if (*string == '\0')
-	{
-		return string-1;
-	}
-	else
-	{
-		printf("%c", *reverse_string(string + 1));
-		return string - 1;
-	}
-	
-}
-int main()
-{
-	char arr[] = { "0" };
-	scanf("%s", arr);
-	char* p;
-	p = reverse_string(arr);
-	//printf("%s", reverse_string(arr));
-	return 0;
-}
+//思路：计算出字符串有多少个字符，n
+//      1、将第1个字符放入temp
+//		2、将第n个字符放入*string
+//		3、将第n个字符位置填入'\0’（便于进行递归时，从string+1位置查询到n-1位置）
+//		4、将temp的字符放入第n个字符位置
+//int my_strlen(char* string)
+//{
+//	int count=0;
+//	while (*string != '\0')
+//	{
+//		string++;
+//		count++;
+//	}
+//	return count;
+//}
+//void reverse_string(char* string)
+//{
+//	int count;
+//	char temp;
+//	count = my_strlen(string);
+//	if (count > 1)
+//	{
+//		temp = *string;
+//		*string = *(string + count - 1);
+//		*(string + count - 1) = '\0';
+//		reverse_string(string + 1);
+//		*(string + count - 1) = temp;
+//	}
+//	return 0;
+//
+//}
+//int main()
+//{
+//	char arr[] = { "abcdef" };
+//	
+//	reverse_string(arr);
+//	printf("%s", arr);
+//	return 0;
+//}
+
+//使用递归实现strlen
+//
+//int my_strlen(char* string)
+//{
+//	int count=1;
+//	if (*string != '\0')
+//	{
+//		return count + my_strlen(string + 1);
+//	}
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	char arr[] = "a1b2c3d4e5";
+//	printf("%d", my_strlen(arr));
+//}
+
+//递归实现n的阶乘
+//int smuti(int n)
+//{
+//	if (n>1)
+//	{
+//		return n * smuti(n - 1);
+//	}
+//	else
+//		return 1;
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	printf("%d", smuti(n));
+//	
+//	return 0;
+//}
+
+//递归方式实现打印一个整数的每一位
+//void pr(int n)
+//{
+//	if (n > 9)
+//	{
+//		pr(n / 10);
+//		printf("%d ", n % 10);
+//	}
+//	else
+//		printf("%d ", n);
+//	return 0;
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	pr(n);
+//	return 0;
+//}
+
