@@ -18,3 +18,6 @@ void PlayerMove(char Board[ROW][COL],int Row,int Col);
 
 //电脑下子函数
 void ComputerMove(char Board[ROW][COL], int Row, int Col);
+
+//判断输赢函数
+char WhoWin(char Board[ROW][COL], int Row, int Col);

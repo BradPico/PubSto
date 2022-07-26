@@ -1,4 +1,3 @@
-
 #include "game.h"
 
 
@@ -14,22 +13,37 @@ void game(void)
 {
 	
 	char Board[ROW][COL];
+	char Result = 'C';
 	//初始化棋盘
 	InitBoard(Board, ROW, COL);
 
-	while (1)
+	while ('C'==Result)
 	{
+		Result = WhoWin(Board, ROW, COL);
+		if (Result != 'C')
+		{
+			break;
+		}
 		//初始化棋盘
 		DisplayBoard(Board, ROW, COL);
 		//玩家下子
 		PlayerMove(Board, ROW, COL);
 		DisplayBoard(Board, ROW, COL);
+		Result = WhoWin(Board, ROW, COL);
 		//电脑下子
 		ComputerMove(Board, ROW, COL);
+		
 	}
-
-	
-
+	if ('Q' == Result)
+	{
+		printf("平局!\n");
+	}
+	else if ('*' == Result)
+	{
+		printf("恭喜你，你赢了！\n");
+	}
+	else
+		printf("电脑赢了！\n");
 
 }
 int main()

@@ -972,3 +972,35 @@
 //	return 0;
 //}
 
+
+//Ã°ÅÝÅÅÐò·¨
+void bubble_sort(int* arr, int n)
+{
+	int temp;
+	for (int i = n-1; i > 0; i--)
+	{
+		for (int m = 0; m < i; m++)
+		{
+			if (*(arr + m) > *(arr + m + 1))
+			{
+				temp = *(arr + m);
+				*(arr + m) = *(arr + m + 1);
+				*(arr + m + 1) = temp;
+			}		      
+		}
+	}
+	return 0;
+}
+int main()
+{
+	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+	int sz = 0;
+	sz = sizeof(arr) / sizeof(arr[0]);
+	bubble_sort(arr, sz);
+	for (int i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+
+}
