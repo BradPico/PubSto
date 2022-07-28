@@ -16,6 +16,7 @@ void game(void)
 	char Result = 'C';
 	//初始化棋盘
 	InitBoard(Board, ROW, COL);
+	DisplayBoard(Board, ROW, COL);
 
 	while ('C'==Result)
 	{
@@ -24,14 +25,18 @@ void game(void)
 		{
 			break;
 		}
-		//初始化棋盘
-		DisplayBoard(Board, ROW, COL);
+		
 		//玩家下子
 		PlayerMove(Board, ROW, COL);
 		DisplayBoard(Board, ROW, COL);
 		Result = WhoWin(Board, ROW, COL);
+		if (Result != 'C')
+		{
+			break;
+		}
 		//电脑下子
 		ComputerMove(Board, ROW, COL);
+		DisplayBoard(Board, ROW, COL);
 		
 	}
 	if ('Q' == Result)
@@ -49,7 +54,7 @@ void game(void)
 int main()
 {
 	int input = 0;
-	
+	srand((unsigned int)time(NULL));
 
 	do
 	{

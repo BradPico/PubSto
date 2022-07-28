@@ -1,3 +1,5 @@
-﻿  game.c
-D:\ZcFlie\05 mycode\PubSto\three_game\three_game\game.c(75,11): warning C4013: “rand”未定义；假设外部返回 int
+﻿  test.c
+D:\ZcFlie\05 mycode\PubSto\three_game\three_game\test.c(10,10): warning C4098: “menu”:“void”函数返回值
+D:\ZcFlie\05 mycode\PubSto\three_game\three_game\test.c(19,14): warning C4013: “DisplayBoard”未定义；假设外部返回 int
+D:\ZcFlie\05 mycode\PubSto\three_game\three_game\test.c(57,26): warning C4013: “time”未定义；假设外部返回 int
   three_game.vcxproj -> D:\ZcFlie\05 mycode\PubSto\three_game\Debug\three_game.exe
