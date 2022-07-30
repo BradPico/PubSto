@@ -48,8 +48,8 @@ void SetMine(char mine[ROWS][COLS], int row, int col, int minenum)
 	int count = 0;
 	while (count != minenum)
 	{
-		i = rand() % 9 + 1;
-		j = rand() % 9 + 1;
+		i = rand() % row + 1;
+		j = rand() % col + 1;
 		if (mine[i][j] == '0')
 		{
 			mine[i][j] = '1';
@@ -57,4 +57,54 @@ void SetMine(char mine[ROWS][COLS], int row, int col, int minenum)
 		}
 	}
 	return 0;
+}
+
+static int getmine(char mine[ROWS][COLS], int x, int y)
+{
+	return mine[x - 1][y - 1] +
+		mine[x - 1][y] +
+		mine[x - 1][y + 1] +
+		mine[x][y - 1] +
+		mine[x][y + 1] +
+		mine[x + 1][y - 1] +
+		mine[x + 1][y] +
+		mine[x + 1][y + 1] - 8 * '0';
+			
+}
+//查找雷函数
+void FindMine(char mine[ROWS][COLS], char board[ROWS][COLS], int row, int col)
+{
+	int x;
+	int y;
+	int Mine_count = 0;
+
+	while(Mine_count<ROW*COL-MINENUM)
+	{
+		printf("请输入排查的坐标：>");
+		scanf("%d%d", &x, &y);
+
+		if (x > 0 && x <= row && y>0 && y <= col && board[x][y] == '*')
+		{
+			if (mine[x][y] == '1')
+			{
+				printf("不好意思，你被炸死了！\n");
+				break;
+			}
+			else 
+			{
+				int n = getmine(mine, x, y);
+				board[x][y] = 48 + n;
+				DisplayBoard(board, ROW, COL);
+				Mine_count++;
+			}
+		}
+		else
+		{
+			printf("坐标错误，请重新输入\n");
+		}
+	}
+	if (Mine_count == ROW * COL - MINENUM)
+	{
+		printf("恭喜你，找出了所有的地雷！\n");
+	}
 }

@@ -24,7 +24,7 @@ void game()
 	//DisplayBoard(mine, ROW, COL);
 	DisplayBoard(board, ROW, COL);
 
-
+	FindMine(mine, board, ROW, COL);
 
 }
 
