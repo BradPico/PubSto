@@ -974,33 +974,79 @@
 
 
 //冒泡排序法
-void bubble_sort(int* arr, int n)
-{
-	int temp;
-	for (int i = n-1; i > 0; i--)
-	{
-		for (int m = 0; m < i; m++)
-		{
-			if (*(arr + m) > *(arr + m + 1))
-			{
-				temp = *(arr + m);
-				*(arr + m) = *(arr + m + 1);
-				*(arr + m + 1) = temp;
-			}		      
-		}
-	}
-	return 0;
-}
+//void bubble_sort(int* arr, int n)
+//{
+//	int temp;
+//	for (int i = n-1; i > 0; i--)
+//	{
+//		for (int m = 0; m < i; m++)
+//		{
+//			if (*(arr + m) > *(arr + m + 1))
+//			{
+//				temp = *(arr + m);
+//				*(arr + m) = *(arr + m + 1);
+//				*(arr + m + 1) = temp;
+//			}		      
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+//	int sz = 0;
+//	sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+//写一个函数返回参数二进制中1的个数
+
+//int count_one_bits(unsigned int value)
+//{
+//	int count = 0;
+//	int i = 0;
+//	for (i = 0; i < 32; i++)
+//	{
+//		if ((value >> i & 1) == 1)
+//		{
+//			count++;
+//		}
+//	}
+//	return count;
+//}
+//
+//int main()
+//{
+//	int value = 0;
+//	printf("请输入一个数，计算其二进制有多少个1：");
+//	scanf("%d", &value);
+//	printf("%d\n", count_one_bits(value));
+//
+//	return 0;
+//}
+
+//获取一个二进制序列中所有的偶数位和奇数位，分别输出二进制序列
 int main()
 {
-	int arr[] = { 9,8,7,6,5,4,3,2,1 };
-	int sz = 0;
-	sz = sizeof(arr) / sizeof(arr[0]);
-	bubble_sort(arr, sz);
-	for (int i = 0; i < sz; i++)
+	int n;
+	printf("请输入一个数：");
+	scanf("%d", &n);
+	printf("偶数位为：");
+	for (int i = 1; i < 32; i = i + 2)
 	{
-		printf("%d ", arr[i]);
+		printf("%d", n >> (31-i) & 1);
 	}
+	printf("\n");
+	printf("奇数位为：");
+	for (int i = 0; i < 32; i = i + 2)
+	{
+		printf("%d", n >> (31- i) & 1);
+	}
+	printf("\n");
 	return 0;
-
 }
