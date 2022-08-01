@@ -1031,22 +1031,61 @@
 //}
 
 //获取一个二进制序列中所有的偶数位和奇数位，分别输出二进制序列
+//int main()
+//{
+//	int n;
+//	printf("请输入一个数：");
+//	scanf("%d", &n);
+//	printf("偶数位为：");
+//	for (int i = 1; i < 32; i = i + 2)
+//	{
+//		printf("%d", n >> (31-i) & 1);
+//	}
+//	printf("\n");
+//	printf("奇数位为：");
+//	for (int i = 0; i < 32; i = i + 2)
+//	{
+//		printf("%d", n >> (31- i) & 1);
+//	}
+//	printf("\n");
+//	return 0;
+//}
+
+//输出一个整数的每一位
+//int evebit(int n)
+//{
+//	if (n > 9)
+//	{
+//		evebit(n / 10);
+//		printf("%d ", n % 10);
+//	}
+//	else
+//		printf("%d ", n);
+//	return n;
+//}
+//int main()
+//{
+//	int n;
+//	scanf("%d", &n);
+//	evebit(n);
+//
+//	return 0;
+//}
+
+//两个int整数m和n的二进制表达式中，有多少个位不同
 int main()
 {
 	int n;
-	printf("请输入一个数：");
-	scanf("%d", &n);
-	printf("偶数位为：");
-	for (int i = 1; i < 32; i = i + 2)
+	int m;
+	int count = 0;
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < 32; i++)
 	{
-		printf("%d", n >> (31-i) & 1);
+		if ((m & (1 << i)) != (n & (1 << i)))
+		{
+			count++;
+		}
 	}
-	printf("\n");
-	printf("奇数位为：");
-	for (int i = 0; i < 32; i = i + 2)
-	{
-		printf("%d", n >> (31- i) & 1);
-	}
-	printf("\n");
+	printf("n与m不同的位的个数：%d", count);
 	return 0;
 }
