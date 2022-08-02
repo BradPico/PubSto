@@ -1073,19 +1073,37 @@
 //}
 
 //两个int整数m和n的二进制表达式中，有多少个位不同
+//int main()
+//{
+//	int n;
+//	int m;
+//	int count = 0;
+//	scanf("%d%d", &n, &m);
+//	for (int i = 0; i < 32; i++)
+//	{
+//		if ((m & (1 << i)) != (n & (1 << i)))
+//		{
+//			count++;
+//		}
+//	}
+//	printf("n与m不同的位的个数：%d", count);
+//	return 0;
+//}
+
+struct book
+{
+	char name[20];
+	char id[20];
+	int  price;
+};
+
 int main()
 {
-	int n;
-	int m;
-	int count = 0;
-	scanf("%d%d", &n, &m);
-	for (int i = 0; i < 32; i++)
-	{
-		if ((m & (1 << i)) != (n & (1 << i)))
-		{
-			count++;
-		}
-	}
-	printf("n与m不同的位的个数：%d", count);
+	struct book b = { "c语言","C20220802",55 };
+	printf("书名：%s\n", b.name);
+	printf("书号：%s\n", b.id);
+	printf("价格：%d\n", b.price);
+
 	return 0;
 }
+
