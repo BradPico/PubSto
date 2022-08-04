@@ -1090,20 +1090,63 @@
 //	return 0;
 //}
 
-struct book
-{
-	char name[20];
-	char id[20];
-	int  price;
-};
+//struct book
+//{
+//	char name[20];
+//	char id[20];
+//	int  price;
+//};
+//
+//int main()
+//{
+//	struct book b = { "c语言","C20220802",55 };
+//	printf("书名：%s\n", b.name);
+//	printf("书号：%s\n", b.id);
+//	printf("价格：%d\n", b.price);
+//
+//	return 0;
+//}
 
+//二级指针
+//int main()
+//{
+//	int a = 10;
+//	int* pa = &a;
+//	int** ppa = &pa;
+//
+//	printf("%d\n", **ppa);
+//	printf("%p\n", *pa);
+//	printf("%d\n", *pa);
+//	return 0;
+//}
+
+//结构体
+struct b
+{
+	char c;
+	short s;
+	double d;
+
+};
+struct stu
+{
+	struct b sb;
+	char name[20];
+	int age;
+	char id[20];
+
+}s1;
+void print(struct stu* sp)
+{
+	printf("%c %d %lf %s %d %s \n", sp->sb.c, sp->sb.s, sp->sb.d, sp->name, sp->age, sp->id);
+
+}
 int main()
 {
-	struct book b = { "c语言","C20220802",55 };
-	printf("书名：%s\n", b.name);
-	printf("书号：%s\n", b.id);
-	printf("价格：%d\n", b.price);
+	struct stu s1 = { {'w', 31 , 3.14},"布拉德皮超",31,"220804" };
 
+	printf("%c %d %lf %s %d %s \n", s1.sb.c, s1.sb.s, s1.sb.d, s1.name,s1.age, s1.id);
+	print(&s1);//  结构体函数传参，要传结构体指针！！，直接传结构体参数，压栈会影响运行效率
 	return 0;
-}
 
+}
