@@ -1121,32 +1121,79 @@
 //}
 
 //结构体
-struct b
-{
-	char c;
-	short s;
-	double d;
+//struct b
+//{
+//	char c;
+//	short s;
+//	double d;
+//
+//};
+//struct stu
+//{
+//	struct b sb;
+//	char name[20];
+//	int age;
+//	char id[20];
+//
+//}s1;
+//void print(struct stu* sp)
+//{
+//	printf("%c %d %lf %s %d %s \n", sp->sb.c, sp->sb.s, sp->sb.d, sp->name, sp->age, sp->id);
+//
+//}
+//int main()
+//{
+//	struct stu s1 = { {'w', 31 , 3.14},"布拉德皮超",31,"220804" };
+//
+//	printf("%c %d %lf %s %d %s \n", s1.sb.c, s1.sb.s, s1.sb.d, s1.name,s1.age, s1.id);
+//	print(&s1);//  结构体函数传参，要传结构体指针！！，直接传结构体参数，压栈会影响运行效率
+//	return 0;
+//
+//}
 
-};
-struct stu
-{
-	struct b sb;
-	char name[20];
-	int age;
-	char id[20];
 
-}s1;
-void print(struct stu* sp)
-{
-	printf("%c %d %lf %s %d %s \n", sp->sb.c, sp->sb.s, sp->sb.d, sp->name, sp->age, sp->id);
+//实现 strcpy 函数
+#include <assert.h>
 
+//void my_strcpy(char* dest, const char* src)
+//{
+//	assert(dest != NULL);
+//	assert(src != NULL);
+//	while (*dest++ = *src++)
+//	{
+//		
+//	}
+//
+//}
+//int main()
+//{
+//	char arr1[20] = "xxxxxxxxxxxxxxx";
+//	char arr2[] = "hello";
+//	
+//	my_strcpy(arr1, arr2);
+//
+//	printf("%s\n", arr1);
+//
+//	return 0;
+//}
+
+
+//strlen求字符串长度，实现my_strlen
+
+unsigned int my_strlen(const char* target)
+{
+	assert(target != NULL);
+	unsigned int count = 0;
+	while (*target++ != '\0')
+	{
+		count++;
+	}
+	return count;
 }
 int main()
 {
-	struct stu s1 = { {'w', 31 , 3.14},"布拉德皮超",31,"220804" };
+	char arr[] = "hello world!";
+	printf("%d\n", my_strlen(arr));
 
-	printf("%c %d %lf %s %d %s \n", s1.sb.c, s1.sb.s, s1.sb.d, s1.name,s1.age, s1.id);
-	print(&s1);//  结构体函数传参，要传结构体指针！！，直接传结构体参数，压栈会影响运行效率
 	return 0;
-
 }
