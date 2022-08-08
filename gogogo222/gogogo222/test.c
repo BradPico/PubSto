@@ -1180,20 +1180,69 @@
 
 //strlen求字符串长度，实现my_strlen
 
-unsigned int my_strlen(const char* target)
+//unsigned int my_strlen(const char* target)
+//{
+//	assert(target != NULL);
+//	unsigned int count = 0;
+//	while (*target++ != '\0')
+//	{
+//		count++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "hello world!";
+//	printf("%d\n", my_strlen(arr));
+//
+//	return 0;
+//}
+
+//计算一个数二进制中有多少个1，负数计算补码
+
+int NumberOf1_1(unsigned int d)
 {
-	assert(target != NULL);
-	unsigned int count = 0;
-	while (*target++ != '\0')
+	int count = 0;
+	while (d)
 	{
+		if (1 == d % 2)
+		{
+			count++;
+		}
+		d /= 2;
+	}
+	return count;
+}
+
+int NumberOf1_2(unsigned int d)
+{
+	int count = 0;
+	for (int i = 0; i < 32; i++)
+	{
+		if (1 == ((d >> i) & 1))
+			count++;
+	}
+	return count;
+}
+
+int NumberOf1_3(unsigned int d)
+{
+	int count = 0;
+	while (d)
+	{
+		d = (d & (d - 1));
 		count++;
 	}
 	return count;
 }
 int main()
 {
-	char arr[] = "hello world!";
-	printf("%d\n", my_strlen(arr));
+	int n = -1;
+	
+	printf("ret1_1 = %d\n", NumberOf1_1(n));
+	printf("ret1_2 = %d\n", NumberOf1_2(n));
+	printf("ret1_3 = %d\n", NumberOf1_3(n));
 
 	return 0;
+
 }
