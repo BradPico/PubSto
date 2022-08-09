@@ -1200,49 +1200,195 @@
 
 //计算一个数二进制中有多少个1，负数计算补码
 
-int NumberOf1_1(unsigned int d)
-{
-	int count = 0;
-	while (d)
-	{
-		if (1 == d % 2)
-		{
-			count++;
-		}
-		d /= 2;
-	}
-	return count;
-}
+//int NumberOf1_1(unsigned int d)
+//{
+//	int count = 0;
+//	while (d)
+//	{
+//		if (1 == d % 2)
+//		{
+//			count++;
+//		}
+//		d /= 2;
+//	}
+//	return count;
+//}
+//
+//int NumberOf1_2(unsigned int d)
+//{
+//	int count = 0;
+//	for (int i = 0; i < 32; i++)
+//	{
+//		if (1 == ((d >> i) & 1))
+//			count++;
+//	}
+//	return count;
+//}
+//
+//int NumberOf1_3(unsigned int d)
+//{
+//	int count = 0;
+//	while (d)
+//	{
+//		d = (d & (d - 1));
+//		count++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	int n = -1;
+//	
+//	printf("ret1_1 = %d\n", NumberOf1_1(n));
+//	printf("ret1_2 = %d\n", NumberOf1_2(n));
+//	printf("ret1_3 = %d\n", NumberOf1_3(n));
+//
+//	return 0;
+//
+//}
 
-int NumberOf1_2(unsigned int d)
-{
-	int count = 0;
-	for (int i = 0; i < 32; i++)
-	{
-		if (1 == ((d >> i) & 1))
-			count++;
-	}
-	return count;
-}
+//复制部分字符串,将一个字符串从第m个字符开始，剩余的全部字符复制成另一个字符串，并输出
+//int main()
+//{
+//	char str[30] = { 0 };
+//    int m = 0;
+//    scanf("%s", str);
+//    int i = 0;
+//    while (str[i])
+//    {
+//        i++;
+//    }
+//    scanf("%d", &m);
+//    char newstr[30] = { 0 };
+//    char* strp = &str[0];
+//    char* newstrp = &newstr[0];
+//    for (int j = m - 1; j <= i; j++)
+//    {
+//        *newstrp = *(str + j);
+//        newstrp++;
+//
+//    }
+//    printf("%s", newstr);
+//
+//	return 0;
+//}
 
-int NumberOf1_3(unsigned int d)
-{
-	int count = 0;
-	while (d)
-	{
-		d = (d & (d - 1));
-		count++;
-	}
-	return count;
-}
-int main()
-{
-	int n = -1;
-	
-	printf("ret1_1 = %d\n", NumberOf1_1(n));
-	printf("ret1_2 = %d\n", NumberOf1_2(n));
-	printf("ret1_3 = %d\n", NumberOf1_3(n));
+//实现 int cal(int* array,int n) 函数，求出长度为n的数组的和
+//
+//int cal(int* array, int n)
+//{
+//    int sum = 0;
+//    for (int i = 0; i < n; i++)
+//    {
+//        sum = sum + array[i];
+//    }
+//    return sum;
+//}
+//
+//int main()
+//{
+//    int n = 0;
+//    int arr[30] = { 0 };
+//    scanf("%d", &n);
+//    for (int i = 0; i < n; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//    }
+//    printf("%d\n", cal(arr, n));
+//
+//    return 0;
+//}
 
-	return 0;
 
+//对一个长度为n的数组排序
+//void sort(int* array, int n)
+//{
+//    int m = 0;
+//    for (int i = 0; i < n - 1; i++)
+//    {
+//        for (int j = 0; j < n - i - 1; j++)
+//        {
+//            if (*(array + j) > *(array + j + 1))
+//            {
+//                m = *(array + j);
+//                *(array + j) = *(array + j + 1);
+//                *(array + j + 1) = m;
+//            }
+//        }
+//    }
+//}
+//
+//int main()
+//{
+//    int n = 0;
+//    int arr[100] = { 0 };
+//    scanf("%d", &n);
+//    for (int i = 0; i < n; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//    }
+//    sort(arr, n);
+//    for (int i = 0; i < n; i++)
+//    {
+//        printf("%d ", arr[i]);
+//    }
+//    return 0;
+//
+//}
+
+//获取字符串长度，使用指针实现
+//int main() {
+//
+//    char str[100] = { 0 };
+//
+//    scanf("%s", &str);
+//    int count = 0;
+//    char* strp = &str[0];
+//    while (*strp)
+//    {
+//        count++;
+//        strp++;
+//    }
+//    printf("%d\n", count);
+//    return 0;
+//}
+
+//使用指针方式交换两数
+//int main() 
+//{
+//
+//    int m, n;
+//    scanf("%d%d", &m, &n);
+//    int* mp = &m;
+//    int* np = &n;
+//    *mp = *mp ^ *np;
+//    *np = *mp ^ *np;
+//    *mp = *mp ^ *np;
+//    printf("%d %d",m,n);
+// 
+//
+//    return 0;
+//}
+
+//使用指针遍历数组
+int main() {
+
+    int arr[6] = { 0 };
+    int* ptr = arr;
+
+    int len = sizeof(arr) / sizeof(int);
+    
+    for (int i = 0; i < len; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+
+    for (int i = 0; i < len; i++)
+    {
+        printf("%d ", *(ptr + i));
+
+    }
+
+    return 0;
 }
