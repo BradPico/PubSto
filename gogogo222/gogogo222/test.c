@@ -1371,24 +1371,143 @@
 //}
 
 //使用指针遍历数组
-int main() {
+//int main() {
+//
+//    int arr[6] = { 0 };
+//    int* ptr = arr;
+//
+//    int len = sizeof(arr) / sizeof(int);
+//    
+//    for (int i = 0; i < len; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//    }
+//
+//
+//    for (int i = 0; i < len; i++)
+//    {
+//        printf("%d ", *(ptr + i));
+//
+//    }
+//
+//    return 0;
+//}
 
-    int arr[6] = { 0 };
-    int* ptr = arr;
+//写代码判断当期机器的字节序
 
-    int len = sizeof(arr) / sizeof(int);
-    
-    for (int i = 0; i < len; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
+//int main()
+//{
+//	int a = 1;
+//	char* p = (char*)&a;
+//	if (*p == 1)
+//	{
+//		printf("小端\n");
+//	}
+//	else
+//	{
+//		printf("大端\n");
+//	}
+//	return 0;
+//}
 
+//输入日期函数“日/月/年”格式，输出“日/月/年”
 
-    for (int i = 0; i < len; i++)
-    {
-        printf("%d ", *(ptr + i));
+//struct TDate
+//{
+//    int Month;
+//    int Day;
+//    int Year;
+//};
+//int main()
+//{
+//    struct TDate Date = { 0 , 0, 0 };
+//    scanf("%d %d %d", &Date.Year, &Date.Month, &Date.Day);
+//    printf("%d/%d/%d", Date.Day, Date.Month, Date.Year);
+//
+//    return 0;
+//}
 
-    }
+//打印菱形
+//思路：1、先打印上半部分， n/2+1 以内的是上半部分的
+//      2、上半部分每一行打印， n-( 2*i-1)个空格，分在两边即可区分一行中打印*与打印 空格的位置
+//      3、下半部分行即是将 1~n/2行的内容反过来输出
+//int main()
+//{
+//	char a = '*';
+//	int n = 9;
+//
+//	for (int i = 1; i <= (n / 2 + 1); i++)   //打印上半部分内容
+//	{
+//		for (int j = 1; j < n+1; j++)
+//		{
+//			if ((j < (n - (2 * i - 1 ))/ 2 + 1 )||( j > (n + 2 * i - 1) / 2))
+//			{
+//				printf(" ");
+//			}
+//			else
+//			{
+//				printf("%c", a);
+//			}
+//		}
+//		printf("\n");
+//	}
+//	for (int i = n / 2; i > 0 ; i--)  // 将上半部分1~n/2行的内容按相反顺序输出
+//	{
+//		for (int j = 1; j < n + 1; j++)
+//		{
+//			if ((j < (n - (2 * i - 1)) / 2 + 1) || (j > (n + 2 * i - 1) / 2))
+//			{
+//				printf(" ");
+//			}
+//			else
+//			{
+//				printf("%c", a);
+//			}
+//		}
+//		printf("\n");
+//	}
+//
+//	return 0;
+//}
 
+//int main()
+//{
+//    int ID = 0;
+//    float s1 = 0;
+//    float s2 = 0;
+//    float s3 = 0;
+//    printf("输入学号：");
+//    scanf("%d", &ID);
+//
+//    scanf("%f %f %f",&s1, &s2, &s3);
+//
+//    printf("The each subject score of NO. %d is %.2f, %.2f, %.2f", ID, s1, s2, s3);
+//
+//    return 0;
+//}
+
+//int main()
+//{
+//	int a = 0;
+//	while ((a = getchar()) != EOF)
+//	{
+//		//a = getchar();
+//		getchar();
+//		printf("%c\n", a + 32);
+//	}	
+//	return 0;
+//}
+
+//int main()
+//{
+//    int n = 0xABCDEF;
+//    printf("%15d", n);
+//    return 0;
+//}
+
+int main()
+{
+    int a = 1234;
+    printf("%#o,%#X", a, a);
     return 0;
 }
